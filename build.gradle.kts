@@ -23,6 +23,10 @@ dependencies {
     implementation("io.github.classgraph", "classgraph", "4.8.181")
 }
 
+tasks.shadowJar {
+    archiveClassifier.set("")
+}
+
 tasks.build {
     dependsOn(tasks.shadowJar)
 }
