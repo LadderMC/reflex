@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Reflex {
 
     private Reflex() {
-        // Prevents instantiation of this utility class.
+        throw new UnsupportedOperationException("This is static class and cannot be instantiated");
     }
 
     /**
