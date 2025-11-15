@@ -1,6 +1,7 @@
 package fr.ladder.reflex;
 
 import fr.ladder.reflex.base.ClassGraphAdapter;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -20,10 +21,10 @@ public final class Reflex {
     /**
      * Creates a new {@link PluginInspector} for the specified Bukkit plugin.
      *
-     * @param plugin The {@link JavaPlugin} to inspect.
+     * @param plugin The {@link Plugin} to inspect.
      * @return A new {@link PluginInspector} instance for analyzing the plugin's resources.
      */
-    public static PluginInspector getInspector(JavaPlugin plugin) {
+    public static PluginInspector getInspector(Plugin plugin) {
         return new ClassGraphAdapter(plugin);
     }
 

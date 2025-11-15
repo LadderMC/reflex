@@ -5,6 +5,7 @@ import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ClassInfo;
 import io.github.classgraph.Resource;
 import io.github.classgraph.ScanResult;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.annotation.Annotation;
@@ -20,11 +21,15 @@ public class ClassGraphAdapter implements PluginInspector {
 
     private final ScanResult _result;
 
-    public ClassGraphAdapter(JavaPlugin plugin) {
+    private ClassGraphAdapter(ClassLoader classLoader) {
         _result = new ClassGraph()
-                .addClassLoader(plugin.getClass().getClassLoader())
+                .addClassLoader(classLoader)
                 .enableAllInfo()
                 .scan();
+    }
+
+    public ClassGraphAdapter(Plugin plugin) {
+        this(plugin.getClass().getClassLoader());
     }
 
     @Override
